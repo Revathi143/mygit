@@ -2,6 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="/static/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/assets/css/font-awesome.min.css">
     <script src="/static/assets/script/jquery.min.js"></script>
     <script src="/static/assets/script/popper.min.js"></script>
     <script src="/static/assets/script/bootstrap.min.js"></script>
@@ -10,40 +11,29 @@
 <body>
     <div class="row  bg-info">
         <div class="col-md-6">
-            <h2>Employee Management System</h2>
+            <h2 style="color:white;">Employee Management System</h2>
         </div>
 
         <div class="col-md-6 menubar d-flex justify-content-end ">
             <nav class="navbar navbar-expand ">
                 <ul class="navbar-nav navi-bar">
-                    
-
-                    <li class="nav-item"><a class="nav-link" style="color:black;" title="add" href="add/">ADD</a></li>
-                    <li class="nav-item"><a class="nav-link" style="color:black;" title="show" href="show/">SHOW</a></li>
-                    <li class="nav-item"><a class="nav-link" style="color:black;" title="edit" href="show/">EDIT</a></li>
-                    <li class="nav-item"><a class="nav-link" style="color:black;" title="delete" href="show/">DELETE</a></li>
-                    <li class="nav-item">
-                        <form method="post" class="post-form" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            <!-- <input type="file" title="Upload file" name="excel_file"> -->
-                            <!-- <div class="mt-3"> -->
-                                <button type="submit" class="btn btn-primary">FILE</button>
-                            <!-- </div> -->
-                        </form>
-                        {% for row in excel_data %} {% for cell in row %} {{ cell }}&nbsp;&nbsp; {% endfor %}
-                        <br> {% endfor %}
-                    </li>
+                    <li class="nav-item"><a class="nav-link" style="color:white;" title="create employee details"
+                            href="add/">ADD</a></li>
+                    <li class="nav-item"><a class="nav-link" style="color:white;" title="show employee details"
+                            href="show/">SHOW</a></li>
+                    <li class="nav-item"><a class="nav-link" style="color:white;" title="update employee details"
+                            href="show/">UPDATE</a></li>
+                    <li class="nav-item"><a class="nav-link" style="color:white;" title="delete employee details"
+                            href="show/">DELETE</a></li>
+                    <li class="nav-item"><a class="nav-link" style="color:white;" title="search employee details"
+                            href="search/"><i class="fa fa-search" title="Search"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" style="color:white;" title="file upload" href="upload/"><i
+                                class="fa fa-upload" title="Upload File"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" style="color:white;" title="chart" href="chart/"><i
+                                class="fa fa-bar-chart" title="chart"></i></a></li>
                 </ul>
-
             </nav>
         </div>
-        <!-- <script>
-            $(".custom-file-input").on("change", function () {
-                var fileName = $(this).val().split("\\").pop();
-                $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-            });
-        </script> -->
-
     </div>
 </body>
 

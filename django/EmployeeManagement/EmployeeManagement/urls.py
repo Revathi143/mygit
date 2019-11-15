@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from employeeapp.views import index,add,edit,search,show,delete,upload_file
+from employeeapp.views import index,add,edit,search,show,delete,upload_file,chart
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -26,7 +26,8 @@ urlpatterns = [
     path('add/', add),
     path('show/', show),
     path('search/', search),
+    path('upload/', upload_file),
     path('delete/<int:employee_code>', delete),
     path('edit/<int:employee_code>', edit),
-    path('uploadfile/', upload_file),
+    path('chart/', chart),
 ]

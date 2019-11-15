@@ -2,33 +2,54 @@
 
 <head>
     <link rel="stylesheet" href="/static/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/assets/css/font-awesome.min.css">
     <script src="/static/assets/script/jquery.min.js"></script>
     <script src="/static/assets/script/popper.min.js"></script>
     <script src="/static/assets/script/bootstrap.min.js"></script>
 </head>
 
-<style>
-    .label {
-        margin-left: 40%;
-        margin: 15%;
-        color: azure;
-        padding-left: 200px;
-    }
-</style>
-</head>
-
-<body style="background-image: url(/static/assets/images/black.jpeg);">
-<div class="label">
-    <span style="font-size: 35px"> SEARCH ID HERE</span><br>
-    <input type="text" placeholder="enter the id"><br><br>
-
-</div>
-<div>
-    <a style="margin-top:-375px; margin-left:390px; background-color: azure" class="btn btn-sm"
-        href="/edit" type="button">Edit Employee Details</a>
-    <!-- <a style="margin-top:-375px; background-color: azure; padding-right: 20px" class="btn btn-sm " href="/show"
-        type="button">DELETE</a> -->
-</div>
+<body>
+    <div class="row  bg-info">
+        <div class="col-md-8">
+            <h2 style="color:white;">Employee Management System</h2>
+        </div>
+        <div class="col-md-4 d-flex justify-content-end ">
+            <a class="nav-link" style="color:white;" title="Home Page" href="/">HOME</a>
+        </div>
+    </div>
+    <div class="container">
+        <form name="myform" method="POST" style="margin-top:20px;">
+            {% csrf_token %}
+            <input type="text" name="name" style="width:80%; height:6%;border-color: #007bff;" placeholder="enter employee name here">
+            <button class="btn btn-outline-primary" style="width:19%;" type="submit">Search</button>
+        </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col" id="employeeCode">Employee Id</th>
+                    <th scope="col" id="name">First Name</th>
+                    <th scope="col" id="emailId">Email Id</th>
+                    <th scope="col" id="contactNo">Contact Number</th>
+                    <th scope="col" id="edit">Edit</th>
+                    <th scope="col" id="del">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for e in employee %}
+                <tr>
+                    <td>{{e.employee_code}}</td>
+                    <td>{{e.name}}</a></td>
+                    <td>{{e.email_id}}</td>
+                    <td>{{e.contact_no}}</td>
+                    <td><a href="/edit/{{e.employee_code}}"><i class="fa fa-pencil"
+                                title="Edit Employee Details Here"></i></a></td>
+                    <td><a href="/delete/{{e.employee_code}}"><i class="fa fa-trash fa-md text-danger"
+                                title="Delete Employee Details"></i></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 
 </html>

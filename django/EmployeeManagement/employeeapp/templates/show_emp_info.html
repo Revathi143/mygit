@@ -12,14 +12,13 @@
 <body>
     <div class="row  bg-info">
         <div class="col-md-8">
-            <h2>Employee Management System</h2>
+            <h2 style="color:white;">Employee Management System</h2>
         </div>
         <div class="col-md-4 d-flex justify-content-end ">
-            <a class="nav-link" style="color:black;" title="Home Page" href="/">HOME</a>
+            <a class="nav-link" style="color:white;" title="Home Page" href="/">HOME</a>
         </div>
     </div>
     <div class="container">
-
         <table class="table">
             <thead>
                 <tr>
@@ -38,8 +37,10 @@
                     <td>{{e.name}}</a></td>
                     <td>{{e.email_id}}</td>
                     <td>{{e.contact_no}}</td>
-                    <td><a href="/edit/{{e.employee_code}}"><i class="fa fa-pencil" title="Edit Employee Details Here"></i></a></td>
-                    <td><a href="/delete/{{e.employee_code}}"><i class="fa fa-trash fa-md text-danger" title="Delete Employee Details"></i></a></td>
+                    <td><a href="/edit/{{e.employee_code}}"><i class="fa fa-pencil"
+                                title="Edit Employee Details Here"></i></a></td>
+                    <td><a href="/delete/{{e.employee_code}}"><i class="fa fa-trash fa-md text-danger"
+                                title="Delete Employee Details"></i></a></td>
                 </tr>
                 {% endfor %}
             </tbody>
